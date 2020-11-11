@@ -4,8 +4,8 @@
 <head>
     <title>Selouse</title>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
@@ -37,9 +37,33 @@
 
     <!-- Your Code Here -->
     <!-- You should start doing handlebar stuff here -->
-    <!-- Your Code Here -->
+    <script id="apartments-template" type="text/x-handlebars-template">
+        {{#if apartments.length}}
+        {{#each apartments}}
+            <div class="result"> 
+                    <img src={{img}} >
+                    <span class="label l-addr">Adress: </span>  <span class="label address">{{address}}</span>
+                    <span class="label l-price">Price: </span> <span class="label price">{{price}}</span>
+                    <span class="l-rooms label">Rooms: </span> <span class="label rooms">{{rooms}}</span>
+                    {{#if parking}}
+                        <span class="l-park label">Parking: </span> <span class="parking label">available</span>
+                    {{/if}}
+                    {{#if immediate}}
+                        <span class="l-immediate label immediate">name: </span> <span class="label immediate"> {{contactDetails.name}}-{{contactDetails.email}}</span>  
+                    {{/if}}
+                    {{#each features}}
+                        <span>features: </span>
+                        <div style="margin-top: 20px;">{{this}}</div>
+                    {{/each}}
+            </div>
+        {{/each}}
+        {{else}}
+            <div class="no-match">No results</div>
+        {{/if}}
+    </script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
     <script src="apt-data.js"></script>
     <script src="apt-filter.js"></script>
